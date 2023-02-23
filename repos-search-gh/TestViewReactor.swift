@@ -7,6 +7,8 @@
 
 import ReactorKit
 import RxSwift
+import Moya
+import RxMoya
 
 final class TestViewReactor: ReactorKit.Reactor {
     enum Action {
@@ -22,6 +24,7 @@ final class TestViewReactor: ReactorKit.Reactor {
     }
 
     let initialState = State()
+    private let networkProvider = MoyaProvider<SearchEndpoint>()
 
     init() {
     }
@@ -34,8 +37,7 @@ final class TestViewReactor: ReactorKit.Reactor {
             else {
                 return .empty()
             }
-            print("testButtonDidTap")
-            return .empty()
+            return fetch()
         }
     }
 
@@ -47,5 +49,16 @@ final class TestViewReactor: ReactorKit.Reactor {
             newState.repositories = data
         }
         return newState
+    }
+
+    private func fetch() -> Observable<Mutation> {
+        return networkProvider.rx.request(.searchRepositories)
+            .filterSuccessfulStatusCodes()
+            .asObservable()
+            .mapJSON()
+            .map { anyData -> Mutation in
+                dump(anyData)
+                return Mutation.setData([1, 2, 3, 4])
+            }
     }
 }

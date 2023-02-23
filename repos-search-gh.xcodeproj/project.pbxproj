@@ -11,6 +11,7 @@
 		EE2195DF29A7251600707A65 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = EE2195DE29A7251600707A65 /* Moya */; };
 		EE2195E129A7251600707A65 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = EE2195E029A7251600707A65 /* RxMoya */; };
 		EE2195E329A7254300707A65 /* TestViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2195E229A7254300707A65 /* TestViewReactor.swift */; };
+		EE2195E529A728B000707A65 /* SearchEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2195E429A728B000707A65 /* SearchEndpoint.swift */; };
 		EEDC61B329A7126A00193A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B229A7126A00193A6C /* AppDelegate.swift */; };
 		EEDC61B529A7126A00193A6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B429A7126A00193A6C /* SceneDelegate.swift */; };
 		EEDC61B729A7126A00193A6C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B629A7126A00193A6C /* TestViewController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		EE2195E229A7254300707A65 /* TestViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewReactor.swift; sourceTree = "<group>"; };
+		EE2195E429A728B000707A65 /* SearchEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEndpoint.swift; sourceTree = "<group>"; };
 		EEDC61AF29A7126A00193A6C /* repos-search-gh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "repos-search-gh.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDC61B229A7126A00193A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEDC61B429A7126A00193A6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				EEDC61C729A712D600193A6C /* Launching */,
 				EEDC61B629A7126A00193A6C /* TestViewController.swift */,
 				EE2195E229A7254300707A65 /* TestViewReactor.swift */,
+				EE2195E429A728B000707A65 /* SearchEndpoint.swift */,
 				EEDC61C629A712AC00193A6C /* Resources */,
 			);
 			path = "repos-search-gh";
@@ -184,6 +187,7 @@
 			files = (
 				EEDC61B729A7126A00193A6C /* TestViewController.swift in Sources */,
 				EEDC61B329A7126A00193A6C /* AppDelegate.swift in Sources */,
+				EE2195E529A728B000707A65 /* SearchEndpoint.swift in Sources */,
 				EEDC61B529A7126A00193A6C /* SceneDelegate.swift in Sources */,
 				EE2195E329A7254300707A65 /* TestViewReactor.swift in Sources */,
 			);
