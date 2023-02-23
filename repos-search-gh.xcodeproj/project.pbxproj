@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE2195DC29A724CA00707A65 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = EE2195DB29A724CA00707A65 /* ReactorKit */; };
 		EEDC61B329A7126A00193A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B229A7126A00193A6C /* AppDelegate.swift */; };
 		EEDC61B529A7126A00193A6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B429A7126A00193A6C /* SceneDelegate.swift */; };
 		EEDC61B729A7126A00193A6C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B629A7126A00193A6C /* TestViewController.swift */; };
@@ -36,6 +37,7 @@
 				EEDC61D429A7247A00193A6C /* RxCocoa in Frameworks */,
 				EEDC61CA29A719B500193A6C /* SnapKit in Frameworks */,
 				EEDC61D829A7247A00193A6C /* RxSwift in Frameworks */,
+				EE2195DC29A724CA00707A65 /* ReactorKit in Frameworks */,
 				EEDC61D629A7247A00193A6C /* RxRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +111,7 @@
 				EEDC61D329A7247A00193A6C /* RxCocoa */,
 				EEDC61D529A7247A00193A6C /* RxRelay */,
 				EEDC61D729A7247A00193A6C /* RxSwift */,
+				EE2195DB29A724CA00707A65 /* ReactorKit */,
 			);
 			productName = "repos-search-gh";
 			productReference = EEDC61AF29A7126A00193A6C /* repos-search-gh.app */;
@@ -141,6 +144,7 @@
 			packageReferences = (
 				EEDC61C829A719B500193A6C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EEDC61D029A7247A00193A6C /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EE2195DA29A724CA00707A65 /* XCRemoteSwiftPackageReference "ReactorKit" */,
 			);
 			productRefGroup = EEDC61B029A7126A00193A6C /* Products */;
 			projectDirPath = "";
@@ -388,6 +392,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EE2195DA29A724CA00707A65 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
 		EEDC61C829A719B500193A6C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -407,6 +419,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EE2195DB29A724CA00707A65 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE2195DA29A724CA00707A65 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
 		EEDC61C929A719B500193A6C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EEDC61C829A719B500193A6C /* XCRemoteSwiftPackageReference "SnapKit" */;
