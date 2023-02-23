@@ -7,18 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE2195DC29A724CA00707A65 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = EE2195DB29A724CA00707A65 /* ReactorKit */; };
+		EE2195DF29A7251600707A65 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = EE2195DE29A7251600707A65 /* Moya */; };
+		EE2195E129A7251600707A65 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = EE2195E029A7251600707A65 /* RxMoya */; };
+		EE2195E329A7254300707A65 /* TestViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2195E229A7254300707A65 /* TestViewReactor.swift */; };
+		EE2195E529A728B000707A65 /* SearchEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2195E429A728B000707A65 /* SearchEndpoint.swift */; };
+		EE2195EB29A72F5900707A65 /* RepositoryModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2195EA29A72F5900707A65 /* RepositoryModelProvider.swift */; };
+		EE2195EE29A737A900707A65 /* RepositoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2195ED29A737A900707A65 /* RepositoryData.swift */; };
+		EE2195F029A7383D00707A65 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2195EF29A7383D00707A65 /* RepositoryModel.swift */; };
+		EEA1217729A73B3800E030EB /* BaseNetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1217629A73B3800E030EB /* BaseNetworkAgent.swift */; };
 		EEDC61B329A7126A00193A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B229A7126A00193A6C /* AppDelegate.swift */; };
 		EEDC61B529A7126A00193A6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B429A7126A00193A6C /* SceneDelegate.swift */; };
-		EEDC61B729A7126A00193A6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B629A7126A00193A6C /* ViewController.swift */; };
+		EEDC61B729A7126A00193A6C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B629A7126A00193A6C /* TestViewController.swift */; };
 		EEDC61BC29A7126B00193A6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEDC61BB29A7126B00193A6C /* Assets.xcassets */; };
 		EEDC61BF29A7126B00193A6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEDC61BD29A7126B00193A6C /* LaunchScreen.storyboard */; };
+		EEDC61CA29A719B500193A6C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EEDC61C929A719B500193A6C /* SnapKit */; };
+		EEDC61D429A7247A00193A6C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EEDC61D329A7247A00193A6C /* RxCocoa */; };
+		EEDC61D629A7247A00193A6C /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EEDC61D529A7247A00193A6C /* RxRelay */; };
+		EEDC61D829A7247A00193A6C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EEDC61D729A7247A00193A6C /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE2195E229A7254300707A65 /* TestViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewReactor.swift; sourceTree = "<group>"; };
+		EE2195E429A728B000707A65 /* SearchEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEndpoint.swift; sourceTree = "<group>"; };
+		EE2195EA29A72F5900707A65 /* RepositoryModelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModelProvider.swift; sourceTree = "<group>"; };
+		EE2195ED29A737A900707A65 /* RepositoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryData.swift; sourceTree = "<group>"; };
+		EE2195EF29A7383D00707A65 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
+		EEA1217629A73B3800E030EB /* BaseNetworkAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNetworkAgent.swift; sourceTree = "<group>"; };
 		EEDC61AF29A7126A00193A6C /* repos-search-gh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "repos-search-gh.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDC61B229A7126A00193A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEDC61B429A7126A00193A6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EEDC61B629A7126A00193A6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EEDC61B629A7126A00193A6C /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		EEDC61BB29A7126B00193A6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEDC61BE29A7126B00193A6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EEDC61C029A7126B00193A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,12 +48,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEDC61D429A7247A00193A6C /* RxCocoa in Frameworks */,
+				EEDC61CA29A719B500193A6C /* SnapKit in Frameworks */,
+				EE2195DF29A7251600707A65 /* Moya in Frameworks */,
+				EEDC61D829A7247A00193A6C /* RxSwift in Frameworks */,
+				EE2195E129A7251600707A65 /* RxMoya in Frameworks */,
+				EE2195DC29A724CA00707A65 /* ReactorKit in Frameworks */,
+				EEDC61D629A7247A00193A6C /* RxRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EEA1217529A73B3800E030EB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1217629A73B3800E030EB /* BaseNetworkAgent.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		EEDC61A629A7126A00193A6C = {
 			isa = PBXGroup;
 			children = (
@@ -55,7 +89,13 @@
 			isa = PBXGroup;
 			children = (
 				EEDC61C729A712D600193A6C /* Launching */,
-				EEDC61B629A7126A00193A6C /* ViewController.swift */,
+				EEDC61B629A7126A00193A6C /* TestViewController.swift */,
+				EE2195E229A7254300707A65 /* TestViewReactor.swift */,
+				EE2195EA29A72F5900707A65 /* RepositoryModelProvider.swift */,
+				EE2195EF29A7383D00707A65 /* RepositoryModel.swift */,
+				EE2195E429A728B000707A65 /* SearchEndpoint.swift */,
+				EE2195ED29A737A900707A65 /* RepositoryData.swift */,
+				EEA1217529A73B3800E030EB /* Core */,
 				EEDC61C629A712AC00193A6C /* Resources */,
 			);
 			path = "repos-search-gh";
@@ -96,6 +136,15 @@
 			dependencies = (
 			);
 			name = "repos-search-gh";
+			packageProductDependencies = (
+				EEDC61C929A719B500193A6C /* SnapKit */,
+				EEDC61D329A7247A00193A6C /* RxCocoa */,
+				EEDC61D529A7247A00193A6C /* RxRelay */,
+				EEDC61D729A7247A00193A6C /* RxSwift */,
+				EE2195DB29A724CA00707A65 /* ReactorKit */,
+				EE2195DE29A7251600707A65 /* Moya */,
+				EE2195E029A7251600707A65 /* RxMoya */,
+			);
 			productName = "repos-search-gh";
 			productReference = EEDC61AF29A7126A00193A6C /* repos-search-gh.app */;
 			productType = "com.apple.product-type.application";
@@ -124,6 +173,12 @@
 				Base,
 			);
 			mainGroup = EEDC61A629A7126A00193A6C;
+			packageReferences = (
+				EEDC61C829A719B500193A6C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EEDC61D029A7247A00193A6C /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EE2195DA29A724CA00707A65 /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				EE2195DD29A7251600707A65 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = EEDC61B029A7126A00193A6C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -150,9 +205,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEDC61B729A7126A00193A6C /* ViewController.swift in Sources */,
+				EEDC61B729A7126A00193A6C /* TestViewController.swift in Sources */,
+				EEA1217729A73B3800E030EB /* BaseNetworkAgent.swift in Sources */,
 				EEDC61B329A7126A00193A6C /* AppDelegate.swift in Sources */,
+				EE2195F029A7383D00707A65 /* RepositoryModel.swift in Sources */,
+				EE2195E529A728B000707A65 /* SearchEndpoint.swift in Sources */,
+				EE2195EE29A737A900707A65 /* RepositoryData.swift in Sources */,
+				EE2195EB29A72F5900707A65 /* RepositoryModelProvider.swift in Sources */,
 				EEDC61B529A7126A00193A6C /* SceneDelegate.swift in Sources */,
+				EE2195E329A7254300707A65 /* TestViewReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +429,79 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EE2195DA29A724CA00707A65 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+		EE2195DD29A7251600707A65 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		EEDC61C829A719B500193A6C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		EEDC61D029A7247A00193A6C /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EE2195DB29A724CA00707A65 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE2195DA29A724CA00707A65 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
+		EE2195DE29A7251600707A65 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE2195DD29A7251600707A65 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		EE2195E029A7251600707A65 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE2195DD29A7251600707A65 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		EEDC61C929A719B500193A6C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEDC61C829A719B500193A6C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		EEDC61D329A7247A00193A6C /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEDC61D029A7247A00193A6C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		EEDC61D529A7247A00193A6C /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEDC61D029A7247A00193A6C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		EEDC61D729A7247A00193A6C /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEDC61D029A7247A00193A6C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EEDC61A729A7126A00193A6C /* Project object */;
 }

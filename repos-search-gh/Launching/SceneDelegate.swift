@@ -17,10 +17,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard
-            let _ = (scene as? UIWindowScene)
+            let windowScene = (scene as? UIWindowScene)
         else {
             return
         }
+        let testViewReactor = TestViewReactor()
+        let testVC = TestViewController(reactor: testViewReactor)
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = testVC
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
