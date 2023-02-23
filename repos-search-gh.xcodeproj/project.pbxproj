@@ -12,6 +12,7 @@
 		EEDC61B729A7126A00193A6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B629A7126A00193A6C /* ViewController.swift */; };
 		EEDC61BC29A7126B00193A6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEDC61BB29A7126B00193A6C /* Assets.xcassets */; };
 		EEDC61BF29A7126B00193A6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEDC61BD29A7126B00193A6C /* LaunchScreen.storyboard */; };
+		EEDC61CA29A719B500193A6C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EEDC61C929A719B500193A6C /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEDC61CA29A719B500193A6C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +98,9 @@
 			dependencies = (
 			);
 			name = "repos-search-gh";
+			packageProductDependencies = (
+				EEDC61C929A719B500193A6C /* SnapKit */,
+			);
 			productName = "repos-search-gh";
 			productReference = EEDC61AF29A7126A00193A6C /* repos-search-gh.app */;
 			productType = "com.apple.product-type.application";
@@ -124,6 +129,9 @@
 				Base,
 			);
 			mainGroup = EEDC61A629A7126A00193A6C;
+			packageReferences = (
+				EEDC61C829A719B500193A6C /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = EEDC61B029A7126A00193A6C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -368,6 +376,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EEDC61C829A719B500193A6C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EEDC61C929A719B500193A6C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEDC61C829A719B500193A6C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EEDC61A729A7126A00193A6C /* Project object */;
 }
