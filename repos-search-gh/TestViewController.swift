@@ -7,8 +7,13 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import ReactorKit
 
-final class TestViewController: UIViewController {
+final class TestViewController: UIViewController, ReactorKit.View {
+    typealias Reactor = TestViewReactor
+    var disposeBag = DisposeBag()
 
     private let testButton: UIButton = {
         let button = UIButton(type: .system)
@@ -16,7 +21,8 @@ final class TestViewController: UIViewController {
         return button
     }()
 
-    init() {
+    init(reactor: Reactor) {
+        defer { self.reactor = reactor }
         super.init(nibName: nil, bundle: nil)
         render()
     }
@@ -32,5 +38,12 @@ final class TestViewController: UIViewController {
         testButton.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+    }
+
+    func bind(reactor: Reactor) {
+        testButton.rx.tap
+            .map { Reactor.Action.testButtonDidTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
 }

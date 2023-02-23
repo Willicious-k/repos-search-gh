@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else {
             return
         }
-        let testVC = TestViewController()
+        let testViewReactor = TestViewReactor()
+        let testVC = TestViewController(reactor: testViewReactor)
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = testVC
         window?.makeKeyAndVisible()
