@@ -45,5 +45,13 @@ final class TestViewController: UIViewController, ReactorKit.View {
             .map { Reactor.Action.testButtonDidTap }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+
+        reactor.state
+            .map { $0.repositories }
+            .filter { !$0.isEmpty }
+            .subscribe(onNext: { [weak self] repositories in
+                print(repositories)
+            })
+            .disposed(by: disposeBag)
     }
 }

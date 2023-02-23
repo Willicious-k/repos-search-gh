@@ -16,15 +16,16 @@ final class TestViewReactor: ReactorKit.Reactor {
     }
 
     enum Mutation {
-        case setData([Int])
+        case setData([RepositoryData])
     }
 
     struct State {
-        var repositories: [Int] = []
+        var repositories: [RepositoryData] = []
     }
 
     let initialState = State()
-    private let networkProvider = MoyaProvider<SearchEndpoint>()
+
+    private let provider = TestViewDataProvider()
 
     init() {
     }
@@ -37,7 +38,7 @@ final class TestViewReactor: ReactorKit.Reactor {
             else {
                 return .empty()
             }
-            return fetch()
+            return performFetch()
         }
     }
 
@@ -51,14 +52,10 @@ final class TestViewReactor: ReactorKit.Reactor {
         return newState
     }
 
-    private func fetch() -> Observable<Mutation> {
-        return networkProvider.rx.request(.searchRepositories)
-            .filterSuccessfulStatusCodes()
-            .asObservable()
-            .mapJSON()
-            .map { anyData -> Mutation in
-                dump(anyData)
-                return Mutation.setData([1, 2, 3, 4])
+    private func performFetch() -> Observable<Mutation> {
+        return provider.fetch()
+            .map { decoded -> Mutation in
+                return Mutation.setData(decoded?.items ?? [])
             }
     }
 }
