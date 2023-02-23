@@ -16,16 +16,16 @@ final class TestViewReactor: ReactorKit.Reactor {
     }
 
     enum Mutation {
-        case setData([RepositoryData])
+        case setData([RepositoryModel])
     }
 
     struct State {
-        var repositories: [RepositoryData] = []
+        var repositories: [RepositoryModel] = []
     }
 
     let initialState = State()
 
-    private let provider = TestViewDataProvider()
+    private let provider = RepositoryModelProvider()
 
     init() {
     }
@@ -38,7 +38,7 @@ final class TestViewReactor: ReactorKit.Reactor {
             else {
                 return .empty()
             }
-            return performFetch()
+            return performSearch()
         }
     }
 
@@ -52,10 +52,10 @@ final class TestViewReactor: ReactorKit.Reactor {
         return newState
     }
 
-    private func performFetch() -> Observable<Mutation> {
+    private func performSearch() -> Observable<Mutation> {
         return provider.fetch()
-            .map { decoded -> Mutation in
-                return Mutation.setData(decoded?.items ?? [])
+            .map { decodedData -> Mutation in
+                return Mutation.setData(decodedData ?? [])
             }
     }
 }
