@@ -42,7 +42,10 @@ final class TestViewController: UIViewController, ReactorKit.View {
         cv.delegate = self
         return cv
     }()
-    var repositories: [RepositoryModel] = []
+
+    private var repositories: [RepositoryModel] {
+        reactor?.currentState.repositories ?? []
+    }
 
     init(reactor: Reactor) {
         defer { self.reactor = reactor }
@@ -78,8 +81,8 @@ final class TestViewController: UIViewController, ReactorKit.View {
         reactor.state
             .map { $0.repositories }
             .filter { !$0.isEmpty }
+            .distinctUntilChanged()
             .subscribe(onNext: { [weak self] repositories in
-                self?.repositories = repositories
                 self?.repositoryCollectionView.reloadData()
             })
             .disposed(by: disposeBag)
