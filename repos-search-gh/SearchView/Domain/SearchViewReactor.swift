@@ -1,5 +1,5 @@
 //
-//  TestViewReactor.swift
+//  SearchViewReactor.swift
 //  repos-search-gh
 //
 //  Created by 김성종 on 2023/02/23.
@@ -10,7 +10,7 @@ import RxSwift
 import Moya
 import RxMoya
 
-final class TestViewReactor: ReactorKit.Reactor {
+final class SearchViewReactor: ReactorKit.Reactor {
     enum Action {
         case textFieldDidFinishEdit(String?)
     }
@@ -21,6 +21,7 @@ final class TestViewReactor: ReactorKit.Reactor {
 
     struct State {
         var repositories: [RepositoryModel] = []
+        var cellTypes: [RepositoryListCellType] = []
     }
 
     let initialState = State()
@@ -49,6 +50,7 @@ final class TestViewReactor: ReactorKit.Reactor {
         switch mutation {
         case .setData(let data):
             newState.repositories = data
+            newState.cellTypes = assembleCellType(data)
         }
         return newState
     }
@@ -58,5 +60,16 @@ final class TestViewReactor: ReactorKit.Reactor {
             .map { decodedData -> Mutation in
                 return Mutation.setData(decodedData ?? [])
             }
+    }
+
+    private func assembleCellType(_ data: [RepositoryModel]) -> [RepositoryListCellType] {
+        guard
+            !data.isEmpty
+        else {
+            return [.emptyResult]
+        }
+        return data.map {
+            RepositoryListCellType.repository($0)
+        }
     }
 }

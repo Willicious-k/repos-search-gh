@@ -1,5 +1,5 @@
 //
-//  TestViewController.swift
+//  SearchViewController.swift
 //  repos-search-gh
 //
 //  Created by 김성종 on 2023/02/23.
@@ -11,8 +11,8 @@ import RxSwift
 import RxCocoa
 import ReactorKit
 
-final class TestViewController: UIViewController, ReactorKit.View {
-    typealias Reactor = TestViewReactor
+final class SearchViewController: UIViewController, ReactorKit.View {
+    typealias Reactor = SearchViewReactor
     var disposeBag = DisposeBag()
 
     private let searchBarView = SearchTextFieldBarView()
@@ -33,6 +33,10 @@ final class TestViewController: UIViewController, ReactorKit.View {
             RepositoryCell.self,
             forCellWithReuseIdentifier: RepositoryCell.identifier
         )
+        cv.register(
+            EmptyListCell.self,
+            forCellWithReuseIdentifier: EmptyListCell.identifier
+        )
         cv.backgroundColor = .white
         cv.alwaysBounceVertical = true
         cv.keyboardDismissMode = .onDrag
@@ -41,8 +45,8 @@ final class TestViewController: UIViewController, ReactorKit.View {
         return cv
     }()
 
-    private var repositories: [RepositoryModel] {
-        reactor?.currentState.repositories ?? []
+    private var cellTypes: [RepositoryListCellType] {
+        reactor?.currentState.cellTypes ?? []
     }
 
     init(reactor: Reactor) {
@@ -78,59 +82,80 @@ final class TestViewController: UIViewController, ReactorKit.View {
             .disposed(by: disposeBag)
 
         reactor.state
-            .map { $0.repositories }
+            .map { $0.cellTypes }
             .filter { !$0.isEmpty }
             .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] repositories in
+            .subscribe(onNext: { [weak self] _ in
                 self?.repositoryCollectionView.reloadData()
             })
             .disposed(by: disposeBag)
     }
 }
 
-extension TestViewController: UICollectionViewDataSource {
+extension SearchViewController: UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return repositories.count
+        return cellTypes.count
     }
 
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: RepositoryCell.identifier,
-            for: indexPath
-        )
         guard
-            let repoCell = cell as? RepositoryCell,
-            let model = repositories[safe: indexPath.item]
+            let cellType = cellTypes[safe: indexPath.item]
         else {
+            return UICollectionViewCell()
+        }
+
+        switch cellType {
+        case .repository(let model):
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: RepositoryCell.identifier,
+                for: indexPath
+            )
+            guard
+                let repoCell = cell as? RepositoryCell
+            else {
+                return cell
+            }
+            repoCell.setup(model)
+            return repoCell
+
+        case .emptyResult:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: EmptyListCell.identifier,
+                for: indexPath
+            )
             return cell
         }
-        repoCell.setup(model)
-        return repoCell
     }
 }
 
-extension TestViewController: UICollectionViewDelegateFlowLayout {
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         guard
-            let model = repositories[safe: indexPath.item]
+            let cellType = cellTypes[safe: indexPath.item]
         else {
             return .zero
         }
 
-        let cell = RepositoryCell()
-        cell.setup(model)
-        let cellWidth = view.windowSize.width
-        let cellHeight = cell.contentView.systemLayoutSizeFitting(.zero).height
-        return CGSize(width: cellWidth, height: cellHeight)
+        switch cellType {
+        case .repository(let model):
+            let cell = RepositoryCell()
+            cell.setup(model)
+            let cellWidth = view.windowSize.width
+            let cellHeight = cell.contentView.systemLayoutSizeFitting(.zero).height
+            return CGSize(width: cellWidth, height: cellHeight)
+
+        case .emptyResult:
+            return view.windowSize
+        }
     }
 }
