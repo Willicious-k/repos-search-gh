@@ -13,8 +13,9 @@ extension UIView {
         self.backgroundColor = color
     }
 
-    class func hairlineView(of color: UIColor?) -> UIView {
-        let color = color ?? UIColor.black.withAlphaComponent(0.2)
+    class func hairlineView(
+        of color: UIColor = UIColor.black.withAlphaComponent(0.2)
+    ) -> UIView {
         return UIView(color: color)
     }
 }

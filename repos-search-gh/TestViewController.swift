@@ -102,9 +102,9 @@ extension TestViewController: UICollectionViewDataSource {
             withReuseIdentifier: RepositoryCell.identifier,
             for: indexPath
         )
-        let model = repositories[indexPath.item]
         guard
-            let repoCell = cell as? RepositoryCell
+            let repoCell = cell as? RepositoryCell,
+            let model = repositories[safe: indexPath.item]
         else {
             return cell
         }
@@ -119,7 +119,16 @@ extension TestViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let cellWidth = view.window?.bounds.width ?? 400
-        return CGSize(width: cellWidth, height: 100)
+        guard
+            let model = repositories[safe: indexPath.item]
+        else {
+            return .zero
+        }
+
+        let cell = RepositoryCell()
+        cell.setup(model)
+        let cellWidth = view.windowSize.width
+        let cellHeight = cell.contentView.systemLayoutSizeFitting(.zero).height
+        return CGSize(width: cellWidth, height: cellHeight)
     }
 }

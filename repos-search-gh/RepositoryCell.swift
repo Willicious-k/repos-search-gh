@@ -40,6 +40,8 @@ final class RepositoryCell: UICollectionViewCell {
         return label
     }()
 
+    private let bottomHairlineView = UIView.hairlineView()
+
     override init(frame: CGRect) {
         super.init(frame: .zero)
         render()
@@ -54,11 +56,17 @@ final class RepositoryCell: UICollectionViewCell {
         labelsStackView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
         }
+        contentView.addSubview(bottomHairlineView)
+        bottomHairlineView.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(1)
+        }
     }
 
     func setup(_ model: RepositoryModel) {
         fullNameLabel.text = model.fullName
         descriptionLabel.text = model.description
-        starCountLabel.text = "\(model.starCount)"
+        starCountLabel.text = "Star: \(model.starCount)"
     }
 }
