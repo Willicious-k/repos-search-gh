@@ -21,6 +21,29 @@ final class TestViewController: UIViewController, ReactorKit.View {
         return button
     }()
 
+    private let repositoryLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        return layout
+    }()
+    private lazy var repositoryCollectionView: UICollectionView = {
+        let cv = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: repositoryLayout
+        )
+        cv.register(
+            RepositoryCell.self,
+            forCellWithReuseIdentifier: RepositoryCell.identifier
+        )
+        cv.backgroundColor = .white
+        cv.dataSource = self
+        cv.delegate = self
+        return cv
+    }()
+    var repositories: [RepositoryModel] = []
+
     init(reactor: Reactor) {
         defer { self.reactor = reactor }
         super.init(nibName: nil, bundle: nil)
@@ -36,7 +59,13 @@ final class TestViewController: UIViewController, ReactorKit.View {
 
         view.addSubview(testButton)
         testButton.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(44)
+        }
+        view.addSubview(repositoryCollectionView)
+        repositoryCollectionView.snp.makeConstraints {
+            $0.top.equalTo(testButton.snp.bottom)
+            $0.bottom.leading.trailing.equalToSuperview()
         }
     }
 
@@ -50,8 +79,47 @@ final class TestViewController: UIViewController, ReactorKit.View {
             .map { $0.repositories }
             .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] repositories in
-                print(repositories)
+                self?.repositories = repositories
+                self?.repositoryCollectionView.reloadData()
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension TestViewController: UICollectionViewDataSource {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        return repositories.count
+    }
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: RepositoryCell.identifier,
+            for: indexPath
+        )
+        let model = repositories[indexPath.item]
+        guard
+            let repoCell = cell as? RepositoryCell
+        else {
+            return cell
+        }
+        repoCell.setup(model)
+        return repoCell
+    }
+}
+
+extension TestViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let cellWidth = view.window?.bounds.width ?? 400
+        return CGSize(width: cellWidth, height: 100)
     }
 }
