@@ -51,6 +51,12 @@ final class RepositoryCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        descriptionLabel.isHidden = false
+        starCountLabel.isHidden = false
+    }
+
     private func render() {
         contentView.addSubview(labelsStackView)
         labelsStackView.snp.makeConstraints {
@@ -66,7 +72,11 @@ final class RepositoryCell: UICollectionViewCell {
 
     func setup(_ model: RepositoryModel) {
         fullNameLabel.text = model.fullName
+
+        descriptionLabel.isHidden = model.description == nil
         descriptionLabel.text = model.description
+
+        starCountLabel.isHidden = model.starCount == 0
         starCountLabel.text = "Star: \(model.starCount)"
     }
 }

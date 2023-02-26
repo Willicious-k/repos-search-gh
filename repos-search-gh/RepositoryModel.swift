@@ -10,7 +10,7 @@ import Foundation
 struct RepositoryModel: Hashable {
     let id: Int
     let fullName: String
-    let description: String
+    let description: String?
     let starCount: Int
 
     init(from data: RepositoryData) {

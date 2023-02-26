@@ -34,7 +34,6 @@ final class TestViewReactor: ReactorKit.Reactor {
         switch action {
         case .textFieldDidFinishEdit(let searchText):
             guard
-                currentState.repositories.isEmpty,
                 let searchText,
                 searchText.isEmpty == false
             else {
