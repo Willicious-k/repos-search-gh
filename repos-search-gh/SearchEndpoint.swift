@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum SearchEndpoint: Moya.TargetType {
-    case searchRepositories
+    case searchRepositories(String)
 
     var baseURL: URL {
         URL(string: "https://api.github.com")!
@@ -24,12 +24,15 @@ enum SearchEndpoint: Moya.TargetType {
     }
 
     var task: Moya.Task {
-        var params: [String: Any] = [:]
-        params["q"] = "Q"
-        return .requestParameters(
-            parameters: params,
-            encoding: URLEncoding.queryString
-        )
+        switch self {
+        case .searchRepositories(let queryString):
+            var params: [String: Any] = [:]
+            params["q"] = queryString
+            return .requestParameters(
+                parameters: params,
+                encoding: URLEncoding.queryString
+            )
+        }
     }
 
     var headers: [String : String]? {

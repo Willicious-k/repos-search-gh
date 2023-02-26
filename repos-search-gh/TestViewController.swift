@@ -15,11 +15,7 @@ final class TestViewController: UIViewController, ReactorKit.View {
     typealias Reactor = TestViewReactor
     var disposeBag = DisposeBag()
 
-    private let testButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("q=Q", for: .normal)
-        return button
-    }()
+    private let searchBarView = SearchTextFieldBarView()
 
     private let repositoryLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -38,6 +34,8 @@ final class TestViewController: UIViewController, ReactorKit.View {
             forCellWithReuseIdentifier: RepositoryCell.identifier
         )
         cv.backgroundColor = .white
+        cv.alwaysBounceVertical = true
+        cv.keyboardDismissMode = .onDrag
         cv.dataSource = self
         cv.delegate = self
         return cv
@@ -60,21 +58,22 @@ final class TestViewController: UIViewController, ReactorKit.View {
     private func render() {
         view.backgroundColor = .white
 
-        view.addSubview(testButton)
-        testButton.snp.makeConstraints {
+        view.addSubview(searchBarView)
+        searchBarView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(44)
         }
         view.addSubview(repositoryCollectionView)
         repositoryCollectionView.snp.makeConstraints {
-            $0.top.equalTo(testButton.snp.bottom)
+            $0.top.equalTo(searchBarView.snp.bottom)
             $0.bottom.leading.trailing.equalToSuperview()
         }
     }
 
     func bind(reactor: Reactor) {
-        testButton.rx.tap
-            .map { Reactor.Action.testButtonDidTap }
+        searchBarView.rx.searchText
+            .distinctUntilChanged()
+            .map { Reactor.Action.textFieldDidFinishEdit($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 

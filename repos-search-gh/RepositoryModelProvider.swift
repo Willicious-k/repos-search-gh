@@ -9,9 +9,9 @@ import Foundation
 import RxSwift
 
 final class RepositoryModelProvider: BaseNetworkAgent<SearchEndpoint> {
-    func fetch() -> Observable<[RepositoryModel]?> {
+    func fetch(query: String) -> Observable<[RepositoryModel]?> {
         return requestOptional(
-            target: .searchRepositories,
+            target: .searchRepositories(query),
             responseType: [RepositoryData].self,
             atKeyPath: "items"
         )

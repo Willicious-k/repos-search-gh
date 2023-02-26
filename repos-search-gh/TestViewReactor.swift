@@ -12,7 +12,7 @@ import RxMoya
 
 final class TestViewReactor: ReactorKit.Reactor {
     enum Action {
-        case testButtonDidTap
+        case textFieldDidFinishEdit(String?)
     }
 
     enum Mutation {
@@ -32,13 +32,14 @@ final class TestViewReactor: ReactorKit.Reactor {
 
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .testButtonDidTap:
+        case .textFieldDidFinishEdit(let searchText):
             guard
-                currentState.repositories.isEmpty
+                let searchText,
+                searchText.isEmpty == false
             else {
                 return .empty()
             }
-            return performSearch()
+            return performSearch(query: searchText)
         }
     }
 
@@ -52,8 +53,8 @@ final class TestViewReactor: ReactorKit.Reactor {
         return newState
     }
 
-    private func performSearch() -> Observable<Mutation> {
-        return provider.fetch()
+    private func performSearch(query: String) -> Observable<Mutation> {
+        return provider.fetch(query: query)
             .map { decodedData -> Mutation in
                 return Mutation.setData(decodedData ?? [])
             }

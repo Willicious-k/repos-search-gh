@@ -19,6 +19,7 @@
 		EE3F6FD429AAE7BF008FD8B3 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F6FD329AAE7BF008FD8B3 /* Collection+Extension.swift */; };
 		EE3F6FD629AAE7DC008FD8B3 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F6FD529AAE7DC008FD8B3 /* Int+Extension.swift */; };
 		EE3F6FD829AAE80B008FD8B3 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F6FD729AAE80B008FD8B3 /* UIView+Extension.swift */; };
+		EE3F6FDA29AAEEE3008FD8B3 /* SearchTextFieldBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3F6FD929AAEEE3008FD8B3 /* SearchTextFieldBarView.swift */; };
 		EEA1217729A73B3800E030EB /* BaseNetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1217629A73B3800E030EB /* BaseNetworkAgent.swift */; };
 		EEDC61B329A7126A00193A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B229A7126A00193A6C /* AppDelegate.swift */; };
 		EEDC61B529A7126A00193A6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC61B429A7126A00193A6C /* SceneDelegate.swift */; };
@@ -41,6 +42,7 @@
 		EE3F6FD329AAE7BF008FD8B3 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		EE3F6FD529AAE7DC008FD8B3 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		EE3F6FD729AAE80B008FD8B3 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		EE3F6FD929AAEEE3008FD8B3 /* SearchTextFieldBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldBarView.swift; sourceTree = "<group>"; };
 		EEA1217629A73B3800E030EB /* BaseNetworkAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNetworkAgent.swift; sourceTree = "<group>"; };
 		EEDC61AF29A7126A00193A6C /* repos-search-gh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "repos-search-gh.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDC61B229A7126A00193A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				EEDC61C729A712D600193A6C /* Launching */,
 				EEDC61B629A7126A00193A6C /* TestViewController.swift */,
+				EE3F6FD929AAEEE3008FD8B3 /* SearchTextFieldBarView.swift */,
 				EE18AEC129A85CDC004BF81C /* RepositoryCell.swift */,
 				EE2195E229A7254300707A65 /* TestViewReactor.swift */,
 				EE2195EA29A72F5900707A65 /* RepositoryModelProvider.swift */,
@@ -227,6 +230,7 @@
 			files = (
 				EE3F6FD429AAE7BF008FD8B3 /* Collection+Extension.swift in Sources */,
 				EE3F6FD829AAE80B008FD8B3 /* UIView+Extension.swift in Sources */,
+				EE3F6FDA29AAEEE3008FD8B3 /* SearchTextFieldBarView.swift in Sources */,
 				EEDC61B729A7126A00193A6C /* TestViewController.swift in Sources */,
 				EEA1217729A73B3800E030EB /* BaseNetworkAgent.swift in Sources */,
 				EEDC61B329A7126A00193A6C /* AppDelegate.swift in Sources */,

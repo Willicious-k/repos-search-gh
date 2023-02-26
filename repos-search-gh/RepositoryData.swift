@@ -10,7 +10,7 @@ import Foundation
 struct RepositoryData: Decodable {
     let id: Int
     let fullName: String
-    let description: String
+    let description: String?
     let starCount: Int
 
     enum CodingKeys: String, CodingKey {
