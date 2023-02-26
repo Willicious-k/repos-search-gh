@@ -1,5 +1,5 @@
 //
-//  TestViewReactor.swift
+//  SearchViewReactor.swift
 //  repos-search-gh
 //
 //  Created by 김성종 on 2023/02/23.
@@ -10,7 +10,7 @@ import RxSwift
 import Moya
 import RxMoya
 
-final class TestViewReactor: ReactorKit.Reactor {
+final class SearchViewReactor: ReactorKit.Reactor {
     enum Action {
         case textFieldDidFinishEdit(String?)
     }

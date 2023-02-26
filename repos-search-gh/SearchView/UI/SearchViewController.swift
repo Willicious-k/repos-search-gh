@@ -1,5 +1,5 @@
 //
-//  TestViewController.swift
+//  SearchViewController.swift
 //  repos-search-gh
 //
 //  Created by 김성종 on 2023/02/23.
@@ -11,8 +11,8 @@ import RxSwift
 import RxCocoa
 import ReactorKit
 
-final class TestViewController: UIViewController, ReactorKit.View {
-    typealias Reactor = TestViewReactor
+final class SearchViewController: UIViewController, ReactorKit.View {
+    typealias Reactor = SearchViewReactor
     var disposeBag = DisposeBag()
 
     private let searchBarView = SearchTextFieldBarView()
@@ -88,7 +88,7 @@ final class TestViewController: UIViewController, ReactorKit.View {
     }
 }
 
-extension TestViewController: UICollectionViewDataSource {
+extension SearchViewController: UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -115,7 +115,7 @@ extension TestViewController: UICollectionViewDataSource {
     }
 }
 
-extension TestViewController: UICollectionViewDelegateFlowLayout {
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,

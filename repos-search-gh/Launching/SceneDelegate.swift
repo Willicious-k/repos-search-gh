@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else {
             return
         }
-        let testViewReactor = TestViewReactor()
-        let testVC = TestViewController(reactor: testViewReactor)
+        let testViewReactor = SearchViewReactor()
+        let testVC = SearchViewController(reactor: testViewReactor)
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = testVC
         window?.makeKeyAndVisible()
