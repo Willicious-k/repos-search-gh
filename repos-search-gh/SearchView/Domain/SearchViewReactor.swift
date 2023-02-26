@@ -21,6 +21,7 @@ final class SearchViewReactor: ReactorKit.Reactor {
 
     struct State {
         var repositories: [RepositoryModel] = []
+        var cellTypes: [RepositoryListCellType] = []
     }
 
     let initialState = State()
@@ -49,6 +50,7 @@ final class SearchViewReactor: ReactorKit.Reactor {
         switch mutation {
         case .setData(let data):
             newState.repositories = data
+            newState.cellTypes = assembleCellType(data)
         }
         return newState
     }
@@ -58,5 +60,16 @@ final class SearchViewReactor: ReactorKit.Reactor {
             .map { decodedData -> Mutation in
                 return Mutation.setData(decodedData ?? [])
             }
+    }
+
+    private func assembleCellType(_ data: [RepositoryModel]) -> [RepositoryListCellType] {
+        guard
+            !data.isEmpty
+        else {
+            return [.emptyResult]
+        }
+        return data.map {
+            RepositoryListCellType.repository($0)
+        }
     }
 }
